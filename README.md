@@ -47,4 +47,30 @@ minikube start --driver=docker
 ![](ins_2.png)
 #### TO RUN MINIKUBE YOU NEED DOCKER AND INSIDE THE MINIKUBE ALSO DOCKER ONLY WILL RUN
 - INSTALL DOCKER
-- Add docker 
+- Add docker to the group using:
+```bash
+sudo usermod -aG docker $USER && newgrp docker
+```
+- Then  use the command:
+```bash
+minikube start --driver=docker
+```
+![](install-complete.png)
+
+- Then check your k8 control pannel status:
+```bash
+kubectl get po -A
+```
+<b>It gives you `ERROR` that says install kubectl</b><br>
+
+![](k8-status.png)
+<b><u><i>but remember you have to install the classic one using:</i></u></b>
+```bash
+sudo snap install kubectl --classic
+```
+![](kube-ctl_installed.png)
+- Now check your `kubectl` status:
+```bash
+kubectl get po -A
+```
+![](kubectl-status.png)
